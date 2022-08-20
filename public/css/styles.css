@@ -1,0 +1,103 @@
+.container-xs {
+    width: 35vw;
+}
+
+.container-xxs {
+    width: 20vw;
+}
+
+h1 {
+    font-size: 50em;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.blank {
+    margin: 20px;
+}
+
+.blank-sm {
+    margin: 10px;
+}
+
+.blank-xl {
+    margin: 60px;
+}
+
+footer {
+    left: 0;
+    bottom: 0;
+}
+
+.divider {
+    border: 1px solid #e5e5e5;
+    margin: 30px;
+}
+
+.left {
+    text-align: left;
+    right: 0
+}
+
+.footer-right {
+    float: right;
+}
+
+.clickable:hover {
+    cursor: pointer
+}
+
+.clickable-icon:hover {
+    cursor: pointer;
+    color: #3eb4b4;
+}
+
+.clickable-icon {
+    color: #3e3e3e;
+    margin: 0 5px;
+}
+
+.date {
+    font-size: 0.8em
+}
+
+a,
+a:hover {
+    text-decoration: none !important;
+}
+
+.inline {
+    display: inline;
+    margin-right: 10px
+}
+
+.footer-text {
+    font-size: 1.2rem !important;
+}
+
+.form-check {
+    text-align: left;
+}
+
+.card-show {
+    width: 635px;
+    margin: auto;
+    text-align: left;
+}
+
+.card-index {
+    width: 340px;
+    text-align: left;
+    margin-bottom: 25px
+}
+
+.verified {
+    margin-right: 10px
+}
+
+.card {
+    margin-bottom: 50px
+}

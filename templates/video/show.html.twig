@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Videos
+{% endblock %}
+
+{% block body %}
+	<div class="blank-xl"></div>
+	<div class="container center">
+		<div class="card card-show">
+			<div class="card-header">
+				<h2>{{ video.title}}</h2>
+			</div>
+			<div class="card-body">
+				<iframe class="card-img-top" width="600" height="400" src={{"https://www.youtube.com/embed/" ~ video.videoLink | split('?v=', 2)[1] }}></iframe>
+			</div>
+		</div>
+		<div class="blank-sm"></div>
+		<div class="card card-show">
+			<div class="card-header">
+				Description
+			</div>
+			<div class="card-body">
+				<p class="card-text=">{{ video.description}}</p>
+				<p class="badge text-bg-light date">{{ "Submitted on " ~ video.createdAt|date("m.d.Y") }}</p>
+				<span class="badge text-bg-light">{{ "By " ~ video.owner.firstname ~ " " ~ video.owner.lastname }}</span>
+				{% if(video.premiumVideo) %}
+					<span class="badge text-bg-warning">Premium</span>
+				{% endif %}
+				<div class="blank-sm"></div>
+				<a href="/">
+					<button class="btn btn-dark btn-block">
+						<i class="bi bi-arrow-left-circle verified"></i>Go back</button>
+				</a>
+				{% if(displayActions) %}
+					<a href={{ "/video/" ~ video.id ~ "/edit"}}>
+						<button class="btn btn-dark btn-block">
+							<i class="bi bi-pencil verified"></i>Edit</button>
+					</a>
+					<a href={{ "/video/" ~ video.id ~ "/delete"}}>
+						<button class="btn btn-dark btn-block">
+							<i class="bi bi-trash verified"></i>Delete</button>
+					</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

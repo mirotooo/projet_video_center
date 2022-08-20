@@ -1,0 +1,39 @@
+composer require symfony/webpack-encore-bundle
+
+symfony console make:controller videoController
+symfony console make:controller loginController
+symfony console make:controller registerController
+symfony console make:controller accountController
+
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+php bin/console doctrine:database:create
+
+php bin/console make:entity
+php bin/console make:user
+
+composer require symfonycasts/verify-email-bundle
+php bin/console make:registration-form
+
+php bin/console doctrine:database:drop --force
+php bin/console doctrine:database:create
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+
+php bin/console doctrine:database:drop --force | php bin/console doctrine:database:create | php bin/console make:migration | php bin/console doctrine:migrations:migrate
+
+php bin/console doctrine:database:drop --force | php bin/console doctrine:database:create | php bin/console make:migration | php bin/console doctrine:migrations:migrate
+
+RELATION:
+$ php bin/console make:entity
+> video
+> owner
+> relation
+> User
+> ManyToOne
+> no
+
+https://www.youtube.com/watch?v=cYxYTm3pEjA
+
+symfony server:stop
+symfony serve -d
