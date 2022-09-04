@@ -45,5 +45,5 @@ php bin/console doctrine:database:drop --force | php bin/console doctrine:databa
 Avant de lancer le code il faut également vérifier le fichier `.env` qui se trouve a la racine du projet et mettre son mailtrap.
 
 ```
-MAILER_DSN=  URL MAILTRAP
+MAILER_DSN=
 ```

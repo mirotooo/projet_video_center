@@ -101,3 +101,11 @@ a:hover {
 .card {
     margin-bottom: 50px
 }
+
+.card-padding{
+    padding: 10px 15px;
+}
+
+a {
+    text-decoration: none;
+}

@@ -13,6 +13,7 @@ class LoginController extends AbstractController
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->isGranted('ROLE_USER') == true) {
+            $this->addFlash('success', 'Already logged in!');
             return $this->redirectToRoute('app_home');
         }
 

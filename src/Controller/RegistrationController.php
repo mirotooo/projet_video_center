@@ -31,7 +31,8 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         if ($this->isGranted('ROLE_USER') == true) {
-            return $this->redirectToRoute('app_video');
+            $this->addFlash('success', 'Already logged in!');
+            return $this->redirectToRoute('app_home');
         }
 
         $user = new User();
@@ -60,11 +61,12 @@ class RegistrationController extends AbstractController
                         ->htmlTemplate('registration/confirmation_email.html.twig')
                 );
             } catch (Exception $e) {
-                $this->addFlash('danger', $e->getMessage());
-                return $this->redirectToRoute('app_home');
+                # $this->addFlash('danger', $e->getMessage());
+                return $this->redirectToRoute('app_login');
             }
 
-            return $this->redirectToRoute('app_home');
+            $this->addFlash('success', 'Account successfully created!');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [

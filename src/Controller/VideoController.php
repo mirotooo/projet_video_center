@@ -63,7 +63,8 @@ class VideoController extends AbstractController
             $video->setOwner($this->security->getUser());
             $entityManager->persist($video);
             $entityManager->flush();
-            $this->addFlash('info', 'Video successfully created!');
+            $this->addFlash('success', 'Video successfully created!');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('video/create.html.twig', [
@@ -117,8 +118,10 @@ class VideoController extends AbstractController
             $video->setOwner($this->security->getUser());
             $entityManager->persist($video);
             $entityManager->flush();
-            $this->addFlash('info', 'Video successfully edited!');
+            $this->addFlash('success', 'Video successfully edited!');
+            return $this->redirectToRoute('app_home');
         }
+        
         return $this->render('video/edit.html.twig', [
             'controller_name' => 'VideoController',
             'createForm' => $form->createView(),

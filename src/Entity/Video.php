@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\VideoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
@@ -14,12 +15,16 @@ class Video
     private $id;
 
     #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\NotBlank(message: "Champ vide!")]
+    #[Assert\Length(min: 3, minMessage: 'Min 3 caracteres')]
     private $title;
 
     #[ORM\Column(type: 'string', length: 500)]
     private $videoLink;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank(message: "Champ vide!")]
+    #[Assert\Length(min: 15, minMessage: 'Min 15 caracteres')]
     private $description;
 
     #[ORM\Column(type: 'datetime',  options: ['default' => 'CURRENT_TIMESTAMP'])]

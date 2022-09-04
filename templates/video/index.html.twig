@@ -11,15 +11,18 @@
 				<div class="row">
 					{% for video in row %}
 						<div class="col-4 left clickable">
-							<div class="card" style="height: 400px">
+							<div
+								class="card card-padding" style="height: 400px">
+								<!-- <iframe width="300" height="200" src={{video.videoLink}}></iframe> -->
+								<a class="card-title" href={{ "/video/" ~ video.id }}>
+									<h2 class="inline title-top">{{ video.title|length > 30 ? video.title|slice(0, 30) ~ '...' : video.title}}</h2>
+									{% if video.premiumVideo == true %}
+										<span class="badge text-bg-warning inline">Premium</span>
+									{% endif %}
+								</a>
 								<iframe class="card-img-top" width="300" height="200" src={{"https://www.youtube.com/embed/" ~ video.videoLink | split('?v=', 2)[1] }}></iframe>
 								<div class="card-body">
-									<a class="card-title" href={{ "/video/" ~ video.id }}>
-										<h2 class="inline">{{ video.title|length > 30 ? video.title|slice(0, 30) ~ '...' : video.title}}</h2>
-										{% if video.premiumVideo == true %}
-											<span class="badge text-bg-warning inline">Premium</span>
-										{% endif %}
-									</a>
+
 									<div class="blank-sm"></div>
 									<p class="card-text">{{ video.description|length > 15 ? video.description|slice(0, 15) ~ '...' : video.description}}</p>
 								</div>
